@@ -1,0 +1,33 @@
+int tonePerSec = 5;
+
+!    zonk
+"    (next tone half)2
+$	mario coiet tab
+%	mod: sawtooth
+&	mod: squarewave
+*    (next tone)*(min(sci code(next tone)%11), 1)
+/ \  Snare
+    _   _
+#    |_|    5 tones!!
+
+'    next tone half
++    next tone double
+,    beat1
+-    next tone remove
+.    beat2
+:    doublebase
+;    beat1/2+beat2/2
+<    +oct/2
+>    -oct/2
+=    std loudness
+    ______
+?    zonk
+       _
+@    _| |_    5 tones!!!
+({[]})	loop(count(zeichen)%7)
+^	crash
+|	crash2
+_	cat2tones
+default	rand(32, 126);
+~	8BitFring
+space	pause
