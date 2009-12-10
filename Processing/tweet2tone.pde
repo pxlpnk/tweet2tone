@@ -1,8 +1,8 @@
 import processing.serial.*;
 
 int       baud          =    9600;
-String    twitterUsr    =    "opentu";
-String    twitterPass   =    "derdepadde";
+String    twitterUsr    =    "xxxx";
+String    twitterPass   =    "xxxx";
 int       sleepTime     =    60000;            //    wait 60 sec before looking for a new tweet
 int       fps           =    1;
 Twitter myTwitter;
