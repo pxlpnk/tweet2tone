@@ -1,0 +1,50 @@
+int tonePerSec = 5;
+
+!    zonk
+"    (next tone half)2
+$ mario coiet tab
+% mod: sawtooth
+& mod: squarewave
+*    (next tone)*(min(sci code(next tone)%11), 1)
+/ \  Snare
+    _   _
+#    |_|    5 tones!!
+
+'    next tone half
++    next tone double
+,    beat1
+-    next tone remove
+.    beat2
+:    doublebase
+;    beat1/2+beat2/2
+<    +oct/2
+>    -oct/2
+=    std loudness
+    ______
+?    zonk
+       _
+@    _| |_    5 tones!!!
+({[]}) loop(count(zeichen)%7)
+^ crash
+| crash2
+_ cat2tones
+default rand(32, 126);
+~ 8BitFring
+space pause
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+Ablauf des holy shit:
+
+#Processing:
+startLoop();
+- sucht nach dem letzten Tweet
+- wenn dieser anders ist, als der vorherige --> text aufbearbeiten (user, date, msg) --> an den Arduino senden --> pause mach
+endLoop();
+
+#Arduino:
+startLoop();
+- Solange Daten über den seriellen Port kommen --> in array schreiben
+- wenn wir einen neuen kompletten Tweet haben --> pars0rn!
+- für jedes Dreierpäckschen: beat[tone, octave, duration] den Ton auf die gewählte Octave setzen --> Ton ausgeben
+endLoop();
