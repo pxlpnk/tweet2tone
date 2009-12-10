@@ -15,6 +15,8 @@ void setup() {
     frameRate(fps);
     //println(Serial.list());
     lastTweet = "";
+    myTwitter     =    new Twitter(twitterUsr, twitterPass);
+    myPort        =    new Serial(this, Serial.list()[0], baud);
 };
 
 
@@ -37,8 +39,6 @@ void draw()
 
 String catchTweets()
 {
-    myTwitter     =    new Twitter(twitterUsr, twitterPass);
-    myPort        =    new Serial(this, Serial.list()[0], baud);
     String ardMsg = " ";
     
     //    TODO:    documentation
