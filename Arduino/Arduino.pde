@@ -1,6 +1,7 @@
 #define  tweetSize  200            //  how many chars are in one tweet
 #define  baud       9600           //  baud for serial connection
 #define beatCount   3*tweetSize    //  this defines the music array: tone, octave, duration, tone, octave, duration, tone, octave, duration
+#include "Tone.h"
 
 int   speakerPin    =  13;
 char  incomingByte  =  0;
@@ -18,6 +19,7 @@ void setup()
     //  fill the melody array with zeros --> nothing will be played
     beat[i] = 0;
   }
+  Serial.println("###Ready to play a tweet");
 }
 
 
