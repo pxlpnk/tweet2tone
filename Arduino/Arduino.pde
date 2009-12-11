@@ -7,13 +7,24 @@ int   speakerPin    =  13;
 char  incomingByte  =  0;
 char  incomingChar[tweetSize];
 int   counter       =  0;
-
+Tone   Bleep1;
+Tone   Bleep2;
+int notes[] = { NOTE_A3,
+                NOTE_B3,
+                NOTE_C4,
+                NOTE_D4,
+                NOTE_E4,
+                NOTE_F4,
+                NOTE_G4 };
+                
+                
 char  beat[beatCount];
 
 
 void setup()
 {
   Serial.begin(baud);
+  Bleep1.begin(13);
   for (int i = 0; i < beatCount; i++)
   {
     //  fill the melody array with zeros --> nothing will be played
@@ -25,7 +36,7 @@ void setup()
 
 void loop()
 {
-  boolean newTweet = false;
+  boolean newTweet = true;
   while (Serial.available() > 0)
   {
     //  get one complete tweet once in a time
@@ -84,29 +95,17 @@ void parseTweet(char tweet[tweetSize], int i)
 //  let's make some music for each entry in beat[]
 void tweet2tone()
 {
+
   //  start the music now
-  for (int i = 0; i < beatCount; i+=3)
+  for (int i = 0; i < 7; i++)
   {
-    int tone = generateTone(beat[i], beat[i+1]);
-    playTone(tone, beat[i+2]);
+    Bleep1.play(notes[i],300);
+    delay(300);
   }
 }
 
 
-//  merges tone + octave
-int generateTone(int tone, int octave)
-{
-  //  TODO:  merge tone with octave
-  return 1136;
-}
 
 
-//  make a beep
-void playTone(int tone, int duration) {
-  for (long i = 0; i < duration * 1000L; i += tone * 2) {
-    digitalWrite(speakerPin, HIGH);
-    delayMicroseconds(tone);
-    digitalWrite(speakerPin, LOW);
-    delayMicroseconds(tone);
-  }
-}
+
+
